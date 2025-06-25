@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Document</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      height: 100%;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      -webkit-user-drag: none;
+    }
+
+    audio {
+      display: none;
+    }
+
+    .title {
+      position: absolute;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 48px;
+      font-weight: bold;
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(270deg, #ff0000, #00ff00, #0000ff, #ffff00, #ff00ff, #00ffff);
+      background-size: 1200% 1200%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: colorShift 5s linear infinite;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+      z-index: 10;
+    }
+
+    @keyframes colorShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+  </style>
+</head>
+<body>
+  <!-- الفيديو -->
+  <video   src="/Loading riverside.mp4"
+  autoplay
+  muted
+  loop
+  playsinline
+  preload="auto"></video>
+
+  <!-- الصوت -->
+  <audio src="/sound.mp3" autoplay loop></audio>
+
+  <!-- النص -->
+  <div class="title">Riverside</div>
+
+  <script>
+    // تقليل صوت الموسيقى
+    const audio = document.querySelector("audio");
+    audio.volume = 0.2;
+  </script>
+</body>
+</html>
